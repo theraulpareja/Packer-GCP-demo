@@ -1,0 +1,28 @@
+{
+    "builders": [
+      {
+        "type": "googlecompute",
+        "account_file": "svc-account-creds/key.json",
+        "project_id": "XXXXXX",
+        "source_image": "debian-10-buster-v20191210",
+        "ssh_username": "default-admin",
+        "zone": "europe-west1-b",
+        "image_name": "custom-linux-test",
+        "image_description": "Image test with GCP integration ",
+        "preemptible": true,
+        "machine_type": "n1-standard-1",
+        "network": "XXXXXXXXX",
+        "network_project_id": "XXXXXXX",
+        "subnetwork": "XXXXXX",
+        "use_internal_ip": true,
+        "omit_external_ip": true
+      }
+    ],
+    "provisioners": [
+        {
+            "type": "file",
+            "source": "sources/demo.txt",
+            "destination": "/tmp/demo.txt"
+        }
+    ]
+  }
